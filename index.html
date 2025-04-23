@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PLP Academy - Software Development Training for African Youth">
+    <link rel="stylesheet" href="style.css">
+    <title>PLP Academy</title>
+</head>
+
+<body>
+    <!-- ***** Header Area Start ***** -->
+    <header>
+        <!-- Removed redundant header-nav class -->
+        <nav class="main-nav" aria-label="Main Navigation">
+            <a href="#">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">CONTACT</a>
+        </nav>
+        <!-- Moved preferences toggle here for better placement -->
+        <div class="preferences-controls">
+            <label for="darkModeToggle">
+                <input type="checkbox" id="darkModeToggle"> Dark Mode
+            </label>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Main Area Start ***** -->
+    <main>
+        <!-- Removed the confusing 'preferences' div wrapper -->
+        <section class="hero">
+            <h1>Power Learn Project</h1>
+            <h2>Software Development - February 2025 - Cohort VII</h2>
+            <p>This course is meant to train young people from Africa, starting at a point of little experience to
+                fairly skilled software developers.</p>
+
+            <!-- Using data-action consistent with JS -->
+            <button data-action="changeText" aria-label="Update paragraph text">Change Text Content</button>
+            <p id="dynamicText">This is a static text that will be changed.</p>
+        </section>
+
+        <section class="modules">
+            <h2>Enrolled Modules</h2>
+            <p>Below is a list of modules:</p>
+            <!-- Changed type="i" to CSS list-style-type for better separation of concerns -->
+            <ol class="module-list">
+                <li><strong>Software Engineering Essentials</strong> - Learn the fundamentals of software engineering.</li>
+                <li><strong>Web Development V2</strong> - Dive into modern web development techniques.</li>
+                <li><strong>Python Programming</strong> - Master the Python programming language.</li>
+                <li><strong>Database Design & Programming with SQL</strong> - Understand database concepts and SQL.</li>
+                <li><strong>Startup Building for Developers</strong> - Gain insights into building and managing startups.</li>
+            </ol>
+        </section>
+
+        <section class="graduates">
+            <h2>Our 2024 Graduates</h2>
+            <div class="gallery">
+                <button id="gallery-prev" class="btn-animated" aria-label="Previous image">Previous</button>
+                <!-- Added class for styling, removed inline width -->
+                <img id="gallery-img" class="gallery-image" src="photo/pexels-emily-ranquist-493228-1205651.jpg"
+                    alt="Group of graduates celebrating" loading="lazy">
+                <button id="gallery-next" class="btn-animated" aria-label="Next image">Next</button>
+            </div>
+        </section>
+
+        <section class="contacts">
+            <h2>Contact List</h2>
+            <div class="table-responsive">
+                <!-- Added explicit tbody and thead -->
+                <table id="contactTable" class="data-table">
+                    <thead>
+                        <tr>
+                            <th>NAME & SURNAME</th>
+                            <th>ADDRESS</th>
+                            <th>MOBILE</th>
+                            <th>EMAIL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>J Cole</td>
+                            <td>New York, USA</td>
+                            <td>+27 65 432 9909</td>
+                            <td>jcole@outlook.com</td>
+                        </tr>
+                        <!-- Other existing rows -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-controls">
+                <!-- Using data-action consistent with JS -->
+                <button data-action="addContact" class="btn-animated" aria-label="Add new contact">Add Contact</button>
+                <button data-action="removeContact" class="btn-animated" aria-label="Remove last contact">Remove Last Contact</button>
+            </div>
+        </section>
+
+        <!-- Interactive Elements Section -->
+        <section class="interactive-demo">
+            <h2>Interactive Elements Demo</h2>
+
+            <div class="demo-item">
+                <button id="color-btn" class="btn-animated" aria-label="Change button background color">Change My Color</button>
+                <p>Changes button color randomly.</p>
+            </div>
+
+            <div class="demo-item">
+                 <!-- Moved styles to CSS, renamed ID to avoid conflict -->
+                <div id="demo-animated-box" class="animated-box-base"></div>
+                <button id="animate-box-btn" class="btn-animated" aria-label="Animate the colored box">Animate Box</button>
+                 <p>Rotates the box on click.</p>
+            </div>
+
+             <div class="demo-item">
+                <button id="animateImageBtn" class="btn-animated">Animate Image Below</button>
+                <!-- Moved styles to CSS -->
+                <img src="photo/kit.jpg" alt="Kitten" class="fade-img demo-image" id="demoImg">
+                <p>Toggles image visibility with animation.</p>
+            </div>
+
+            <div class="tabs-container demo-item">
+                 <h3>Tabs Example</h3>
+                <div class="tab-buttons" role="tablist">
+                    <!-- Added role attributes for accessibility -->
+                    <button class="tab-btn active" data-tab="tab1" role="tab" aria-selected="true" aria-controls="tab1">Tab 1</button>
+                    <button class="tab-btn" data-tab="tab2" role="tab" aria-selected="false" aria-controls="tab2">Tab 2</button>
+                    <button class="tab-btn" data-tab="tab3" role="tab" aria-selected="false" aria-controls="tab3">Tab 3</button>
+                </div>
+                <!-- Added role attributes for accessibility -->
+                <div class="tab-content active" id="tab1" role="tabpanel">Content for Tab 1</div>
+                <div class="tab-content" id="tab2" role="tabpanel">Content for Tab 2</div>
+                <div class="tab-content" id="tab3" role="tabpanel">Content for Tab 3</div>
+            </div>
+        </section>
+
+        <!-- Event Handling Section -->
+        <section class="event-handling-demo">
+            <h2>Event Handling Demo</h2>
+            <div class="demo-item">
+                <button id="click-btn" class="btn-animated" aria-label="Demonstration button">Click Me</button>
+                <p id="event-output">Feedback appears here.</p>
+            </div>
+            <div class="demo-item">
+                <!-- Moved styles to CSS -->
+                <div id="hover-box" class="hover-box-base">Hover over me</div>
+                <p>Box changes on mouse enter/leave.</p>
+            </div>
+             <div class="demo-item">
+                 <!-- Moved styles to CSS -->
+                <div id="key-display" class="key-display-base">Press any key</div>
+                <p>Displays the last key pressed anywhere on the page.</p>
+            </div>
+            <div class="demo-item">
+                <button id="secret-btn" class="btn-animated" aria-label="Secret action button">Secret Button (Click 5 times)</button>
+                <p>Unlocks a secret after 5 clicks.</p>
+            </div>
+        </section>
+
+        <section class="registration">
+            <h2>Registration Form</h2>
+            <form id="signup-form" action="#" method="post" novalidate> <!-- Added novalidate to rely on JS validation -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <!-- Removed <br><br>, using CSS for spacing -->
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" placeholder="Enter a secure password" required minlength="8">
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" name="dob" id="dob" required>
+                    </div>
+                </fieldset>
+                <!-- Moved styles to CSS -->
+                <div id="form-feedback" class="form-feedback-base"></div>
+                <button type="submit" id="register-btn" class="btn-animated" aria-label="Submit registration form">Register</button>
+            </form>
+        </section>
+
+    </main>
+    <!-- ***** Main Area End ***** -->
+
+    <!-- ***** Footer Area Start ***** -->
+    <footer>
+        <p>August 2024 - Cohort VI Support Channel</p>
+        <p>&copy; 2024 Power Learn Project. All rights reserved.</p>
+        <!-- Removed ul/li as they weren't used for navigation -->
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

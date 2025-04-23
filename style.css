@@ -1,0 +1,639 @@
+/* CSS Variables */
+:root {
+    --primary-color: #2980b9;
+    --primary-hover-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #f39c12;
+    --light-bg-color: #f9f9f9;
+    --light-content-bg: white;
+    --dark-bg-color: #1a1a1a; /* Dark mode bg */
+    --dark-content-bg: #2d2d2d; /* Dark mode content bg */
+    --text-color-light: #333;
+    --text-color-dark: #f1f1f1; /* Dark mode text */
+    --border-color: #ddd;
+    --border-radius: 8px;
+    --border-radius-small: 4px;
+    --font-primary: 'Arial', sans-serif;
+    --font-headings: 'Verdana', sans-serif;
+    --transition-speed: 0.3s;
+    --box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow-heavy: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Global styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--light-bg-color);
+    color: var(--text-color-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-headings);
+    color: var(--secondary-color); /* Default heading color */
+    margin: 0.5rem 0 1rem 0; /* Consistent bottom margin */
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; color: var(--primary-color); } /* Specific color for h2 */
+h3 { font-size: 1.2rem; }
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--primary-hover-color);
+}
+
+img {
+    max-width: 100%; /* Make images responsive by default */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    border-radius: var(--border-radius);
+}
+
+/* Header styles */
+header {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .main-nav {
+    display: flex;
+    gap: 15px;
+}
+
+header .main-nav a {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-small);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+header .main-nav a:hover {
+    background-color: rgba(255,255,255,0.2);
+    color: white; /* Ensure color stays white on hover */
+}
+
+.preferences-controls label {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+/* Main content styles */
+main {
+    flex: 1;
+    padding: 1rem 0; /* Add some vertical padding */
+}
+
+/* Section styles */
+section {
+    margin: 1.5rem auto; /* Center sections horizontally */
+    padding: 1.5rem;
+    background-color: var(--light-content-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+    max-width: 1100px; /* Limit max width for better readability */
+    transition: background-color var(--transition-speed) ease;
+}
+
+.hero {
+    text-align: center;
+    background-color: #e3f2fd; /* Keep specific hero bg */
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* List styles */
+ol, ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+.module-list {
+    list-style-type: lower-roman; /* Moved from HTML */
+}
+
+/* Image specific styles */
+.gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.25rem 0;
+}
+.gallery-image { /* Replaces #gallery-img */
+    width: 100%;
+    max-width: 500px; /* Adjusted max-width */
+    height: 300px; /* Fixed height */
+    object-fit: cover; /* Ensure image covers the area */
+    border: 3px solid var(--primary-color);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+.gallery-image:hover {
+    transform: scale(1.03);
+    box-shadow: var(--box-shadow-heavy);
+}
+
+/* Table styles */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.data-table { /* Replaces direct table styling */
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid var(--border-color);
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: var(--primary-color);
+    color: white;
+    position: sticky;
+    top: 0; /* Might need adjustment if main header is sticky */
+    z-index: 1;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: var(--light-bg-color);
+}
+
+.data-table tbody tr:hover {
+    background-color: #f1f1f1; /* Keep a light hover for tables */
+}
+
+.table-controls {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Form styles */
+form {
+    /* Styles moved to section */
+    max-width: 800px;
+    margin: 1.5rem auto; /* Center form within its section */
+}
+
+fieldset {
+    border: 1px solid var(--border-color);
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.25rem;
+}
+
+legend {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    padding: 0 0.5rem;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 1rem; /* Spacing between form elements */
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 0.3rem; /* Reduced space below label */
+    display: block;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    /* margin: 0.5rem 0 1rem 0; Removed margin, handled by form-group */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    font-size: 1rem; /* Ensure consistent font size */
+    background-color: var(--light-content-bg); /* Form input background */
+    color: var(--text-color-light); /* Form input text color */
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.3);
+}
+
+/* Button styles */
+button,
+.button { /* Add a class for button-like elements if needed */
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    display: inline-block; /* Ensure buttons behave consistently */
+}
+
+button:hover,
+.button:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-heavy);
+}
+
+button:active,
+.button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Animated button styles */
+.btn-animated {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-animated:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease; /* Adjusted transition property */
+}
+
+.btn-animated:hover:before {
+    left: 100%;
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--text-color-dark); /* Use dark mode text color for footer */
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    margin-top: auto; /* Pushes footer to bottom */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+footer a {
+    color: var(--accent-color);
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Interactive Demo Styles */
+.interactive-demo .demo-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.interactive-demo .demo-item:last-child {
+    border-bottom: none;
+}
+.interactive-demo p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+#color-btn.changed { /* Example state, JS might handle this directly */
+    background-color: #2196f3;
+}
+
+/* Styles moved from inline HTML */
+.animated-box-base { /* Replaces #animated-box */
+    width: 100px;
+    height: 100px;
+    background: var(--primary-hover-color);
+    margin: 1rem 0;
+    transition: transform 0.5s ease-in-out; /* Keep transition here */
+}
+
+.demo-image { /* Replaces inline style on #demoImg */
+    display: block;
+    margin: 1rem 0;
+    border: 2px solid var(--secondary-color);
+    transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+.demo-image.hidden { /* Class to hide the image */
+    opacity: 0;
+    transform: scale(0.95);
+    height: 0; /* Collapse space when hidden */
+    overflow: hidden;
+    border: none;
+    margin: 0;
+}
+
+/* Tabs */
+.tabs-container {
+    margin-top: 1.5rem;
+}
+.tab-buttons {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+.tab-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+    border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    font-weight: normal; /* Override default button bold */
+}
+.tab-btn:hover {
+    background-color: #ddd;
+    transform: none; /* Override default button hover */
+    box-shadow: none;
+}
+.tab-btn.active {
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+.tab-content {
+    display: none;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius-small) var(--border-radius-small);
+    background-color: var(--light-content-bg); /* Ensure content bg matches */
+}
+.tab-content.active {
+    display: block;
+    animation: anim-fadeIn 0.4s ease; /* Add fade-in for tabs */
+}
+
+/* Event Handling Demo Styles */
+.hover-box-base { /* Replaces #hover-box inline styles */
+    width: 180px;
+    height: 50px;
+    background: #eee;
+    margin: 1rem 0;
+    line-height: 50px;
+    text-align: center;
+    border-radius: var(--border-radius-small);
+    cursor: default;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+.key-display-base { /* Replaces #key-display inline styles */
+    margin: 1rem 0;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    min-height: 40px; /* Ensure consistent height */
+    background-color: #f0f0f0;
+}
+.form-feedback-base { /* Replaces #form-feedback inline styles */
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-radius: var(--border-radius-small);
+    min-height: 1.5em; /* Prevent layout shift */
+}
+.form-feedback-base.success {
+    color: #2ecc71;
+    background-color: #e8f8f1;
+}
+.form-feedback-base.error {
+    color: #e74c3c;
+    background-color: #fdedec;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: var(--dark-bg-color);
+    color: var(--text-color-dark);
+}
+body.dark-mode section,
+body.dark-mode form,
+body.dark-mode .tab-content {
+    background-color: var(--dark-content-bg);
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.05); /* Lighter shadow for dark */
+}
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+    color: var(--primary-hover-color); /* Brighter headings in dark mode */
+}
+body.dark-mode h2 {
+     color: var(--primary-color); /* Keep h2 primary */
+}
+body.dark-mode a {
+    color: var(--primary-hover-color);
+}
+body.dark-mode a:hover {
+    color: var(--accent-color);
+}
+body.dark-mode .hero {
+    background-color: #2c3e50; /* Darker hero bg */
+    color: var(--text-color-dark);
+}
+body.dark-mode .data-table th {
+    background-color: var(--secondary-color); /* Darker table header */
+}
+body.dark-mode .data-table tbody tr:nth-child(even) {
+    background-color: #333; /* Darker even rows */
+}
+body.dark-mode .data-table tbody tr:hover {
+    background-color: #444; /* Darker row hover */
+}
+body.dark-mode .data-table,
+body.dark-mode .data-table th,
+body.dark-mode .data-table td,
+body.dark-mode fieldset,
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="date"],
+body.dark-mode select,
+body.dark-mode .tab-buttons,
+body.dark-mode .tab-content,
+body.dark-mode .key-display-base {
+    border-color: #555; /* Darker borders */
+}
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="date"],
+body.dark-mode select,
+body.dark-mode .key-display-base {
+    background-color: #444; /* Darker input backgrounds */
+    color: var(--text-color-dark);
+}
+body.dark-mode input:focus,
+body.dark-mode select:focus {
+    border-color: var(--primary-hover-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+body.dark-mode .tab-btn {
+    background-color: #555;
+    color: var(--text-color-dark);
+}
+body.dark-mode .tab-btn:hover {
+    background-color: #666;
+}
+body.dark-mode .tab-btn.active {
+    background: var(--primary-color);
+    color: white;
+}
+body.dark-mode .hover-box-base {
+    background-color: #555;
+    color: var(--text-color-dark);
+}
+body.dark-mode .form-feedback-base.success {
+    color: #58d68d;
+    background-color: #1e4633;
+}
+body.dark-mode .form-feedback-base.error {
+    color: #f1948a;
+    background-color: #4d2a26;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+        gap: 1rem; /* Add gap for column layout */
+    }
+    header .main-nav {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 0; /* Remove top margin */
+    }
+    header .main-nav a {
+        width: 90%; /* Adjust width */
+        text-align: center;
+        margin: 0.25rem 0;
+    }
+    section {
+        margin: 1rem; /* Consistent margin */
+        padding: 1rem;
+    }
+    .gallery {
+        flex-direction: column;
+    }
+    form {
+        padding: 1rem;
+    }
+    fieldset {
+        padding: 0.75rem;
+    }
+    .tab-buttons {
+        flex-wrap: wrap; /* Allow tabs to wrap on small screens */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    header {
+        padding: 1rem;
+    }
+    header .main-nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+    section {
+        margin: 1.2rem auto; /* Adjust margin */
+        padding: 1.2rem;
+    }
+}
+
+/* Utility classes (Keep useful ones) */
+.container { /* Example container if needed */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+.text-center { text-align: center; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+/* Animations (Prefixed custom animations) */
+@keyframes anim-fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.anim-fade-in { animation: anim-fadeIn 0.5s ease-in forwards; } /* Added forwards */
+
+@keyframes anim-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); } /* Slightly less bounce */
+}
+.anim-bounce { animation: anim-bounce 0.5s ease; }
+
+@keyframes anim-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+.anim-pulse { animation: anim-pulse 0.6s ease; }
+
+@keyframes anim-shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+.anim-shake { animation: anim-shake 0.5s ease; }
+
+@keyframes anim-slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.anim-slide-in { animation: anim-slideIn 0.5s ease-out forwards; } /* Added forwards */
+
+/* Animation utility classes (Refined) */
+.animate-on-hover:hover {
+    /* Example: Apply animation on hover */
+    /* animation: anim-pulse 0.6s ease; */
+}
+/* Consider using JS to add/remove animation classes for more control than pure CSS utilities */
