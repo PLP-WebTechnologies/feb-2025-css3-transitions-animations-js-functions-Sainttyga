@@ -637,3 +637,58 @@ body.dark-mode .form-feedback-base.error {
     /* animation: anim-pulse 0.6s ease; */
 }
 /* Consider using JS to add/remove animation classes for more control than pure CSS utilities */
+/* === General Animations === */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+  }
+  
+  @keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1);}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+  }
+  
+  @keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    20%, 60% {transform: translateX(-5px);}
+    40%, 80% {transform: translateX(5px);}
+  }
+  
+  /* === Animation Classes === */
+  .anim-bounce {
+    animation: bounce 0.6s ease;
+  }
+  
+  .anim-pulse {
+    animation: pulse 0.6s ease;
+  }
+  
+  .anim-fadeIn {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  .anim-fadeOut {
+    animation: fadeOut 0.5s ease forwards;
+  }
+  
+  .anim-shake {
+    animation: shake 0.4s ease;
+  }
+  
+  /* === Dark Mode Transition (Optional) === */
+  body {
+    transition: background-color 0.4s, color 0.4s;
+  }
+  
